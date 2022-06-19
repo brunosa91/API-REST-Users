@@ -16,4 +16,11 @@ class UserModel(db.model):
     def __repre__(self, ):
         return f'UserModel(nome={self.nome},email={self.email},telefone={self.telefone})'
 
-   
+   def json(self,):
+       return{
+           'nome':self.nome
+           'email':self.email
+           'telefone':self.telefone
+       }
+
+    def 
