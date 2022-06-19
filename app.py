@@ -1,4 +1,12 @@
-from flask import Flask
+from flask import Flask, jsonify
+
+user = [
+    {
+        'name':'Bruno Santana de Sá',
+        'email':'brunosantana@gmail.com',
+        'telefone':'(11)988887777'
+    }
+]
 
 app =  Flask(__name__)
 
@@ -9,7 +17,7 @@ def createUser():
 
 @app.route('/users' , methods=['GET'])
 def getUser():
-    pass
+    return jsonify(user)
 
 @app.route('/users/<id>' , methods=['GET'])
 def getUserById(id):
