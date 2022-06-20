@@ -1,5 +1,9 @@
 from flask import Flask, Blueprint
-from flask_restful import Api
+from flask_restx import Api
+from ma import ma
+from db import db
+
+from marshmallow import ValidationError
 
 class Server():
     def __init__(self,):
@@ -11,12 +15,18 @@ class Server():
         self.app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
         self.app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
         self.app.config['PROPAGATE_EXCEPTIONS'] = True
-        
-        def user_ns(self, ):
+
+        self.user_ns = self.user_ns()
+
+        super().__init__()
+
+    def user_ns(self, ):
             return self.api.namespace(name='User', description='user related operations', path='/')
-        def run(self, ):
-            self.app.run(
-                port=5000,
-                debug=True,
-                host='0.0.0.0'
+    def run(self, ):
+        self.app.run(
+            port=5000,
+            debug=True,
+            host='0.0.0.0'
         )
+
+server = Server()
