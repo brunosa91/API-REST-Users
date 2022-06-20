@@ -1,12 +1,12 @@
 from db import db
 
-class UserModel(db.model):
+class UserModel(db.Model):
     __tablename__ = 'users'
 
-    id = db.Collumn(db.intenger, primary_key = True)
-    nome = db.Collumn(db.String(80), nullable=False, unique = True)
-    email = db.Collumn(db.String(80), nullable=False, unique = True)
-    telefone = db.Collumn(db.intenger, nullable=False)
+    id = db.Column(db.Integer, primary_key = True)
+    nome = db.Column(db.String(80), nullable=False, unique = True)
+    email = db.Column(db.String(80), nullable=False, unique = True)
+    telefone = db.Column(db.Integer, nullable=False)
 
     def __init__(self,nome,email,telefone):
         self.nome = nome
@@ -16,10 +16,10 @@ class UserModel(db.model):
     def __repre__(self, ):
         return f'UserModel(nome={self.nome},email={self.email},telefone={self.telefone})'
 
-   def json(self,):
+    def json(self,):
        return{
-           'nome':self.nome
-           'email':self.email
+           'nome':self.nome,
+           'email':self.email,
            'telefone':self.telefone
        }
 
