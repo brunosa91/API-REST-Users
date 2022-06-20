@@ -35,7 +35,7 @@ cd API-REST-Users
 Instalando os pacotes:
 
 ```
-py -3 -m venv ven
+py -3 -m venv venv
 ```
 
 ```
@@ -56,6 +56,10 @@ pip install flask-marshmallow
 
 ```
 pip install -U Flask-SQLAlchemy
+```
+
+```
+pip install -u marshmallow-sqlalchemy
 ```
 
 Iniciando o servidor:
